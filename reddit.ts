@@ -5,21 +5,30 @@ import { Component } from "angular2/core";
   selector: 'reddit',
   template: `
   <form class="ui large form segment">
-    <h3 class="ui header">Add a Link</h3>
+    <h3 class="ui header">Add an Article</h3>
 
     <div class="field">
       <label for="title">Title:</label>
-      <input name="title">
+      <input name="title" #newTitle>
     </div>
     <div class="field">
       <label for="link">Link:</label>
-      <input name="link">
+      <input name="link" #newLink>
     </div>
+
+    <button (click)="addArticle(newTitle, newLink)"
+            class="ui positive right floated button">
+      Submit
+    </button>
   </form>
   `
 })
 class RedditApp {
   constructor() {
+  }
+
+  addArticle(title: HTMLInputElement, link: HTMLInputElement): void {
+    console.log(`Adding article with title: ${title.value} and link: ${link.value}`);
   }
 }
 
