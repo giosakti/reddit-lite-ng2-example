@@ -1,14 +1,19 @@
 import { bootstrap } from "angular2/platform/browser";
 import { Component } from "angular2/core";
+import { NgFor } from "angular2/common";
 
 @Component({
   selector: 'hello-world',
-  template: `<div>Hello {{ name }}</div>`
+  template: `
+  <ul>
+    <li *ngFor="#name of names">Hello {{ name }}</li>
+  </ul>
+  `
 })
 class HelloWorld {
-  name: string;
+  names: string[];
   constructor() {
-    this.name = 'Giovanni';
+    this.names = ['Giovanni', 'Raymond', 'Tara', 'Iqbal'];
   }
 }
 
