@@ -98,7 +98,7 @@ class RedditArticle {
 
   <div class="ui grid posts">
     <reddit-article
-      *ngFor="#article of articles"
+      *ngFor="#article of sortedArticles()"
       [article]="article">
     </reddit-article>
   </div>
@@ -117,6 +117,13 @@ class RedditApp {
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement): void {
     console.log(`Adding article with title: ${title.value} and link: ${link.value}`);
+    this.articles.push(new Article(title.value, link.value, 0));
+    title.value = '';
+    title.link = '';
+  }
+
+  sortedArticles(): Article[] {
+    return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
   }
 }
 
