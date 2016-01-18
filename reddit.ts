@@ -61,6 +61,7 @@ class RedditArticle {
 
 @Component({
   selector: 'reddit',
+  directives: [RedditArticle],
   template: `
   <form class="ui large form segment">
     <h3 class="ui header">Add an Article</h3>
@@ -79,6 +80,11 @@ class RedditArticle {
       Submit
     </button>
   </form>
+
+  <div class="ui grid posts">
+    <reddit-article>
+    </reddit-article>
+  </div>
   `
 })
 class RedditApp {
