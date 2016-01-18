@@ -15,5 +15,19 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
+    <script>
+      System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app.js')
+            .then(null, console.error.bind(console));
+    </script>
+
+    <hello-world></hello-world>
   </body>
 </html>
